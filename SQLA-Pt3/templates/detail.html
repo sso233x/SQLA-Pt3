@@ -1,0 +1,17 @@
+<img src="{{ user.image_url}}" alt="Profile Image">
+<h1>{{ user.first_name }} {{ user.last_name }}</h1>
+<a href="/users">Back</a>
+<a href="/users/{{ user.id }}/edit">Edit</a>
+<form action="/users/{{ user.id }}/delete" method="POST">
+    <button type="submit">Remove</button>
+</form>
+
+<h3>Posts</h3>
+<ul>
+    {% for post in user.posts %}
+    <li>
+        <a href="/posts/{{ post.id }}">{{ post.title }}</a>
+    </li>
+    {% endfor %}
+</ul>
+<a href="/users/{{ user.id }}/posts/new">Add Post</a>

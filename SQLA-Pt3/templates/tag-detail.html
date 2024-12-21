@@ -1,0 +1,19 @@
+<h1>{{ tag.name }}</h1>
+<h2>Posts with Tag:</h2>
+{% if tag.posts %}
+  <ul>
+    {% for post in tag.posts %}
+      <li>
+        <a href="/posts/{{ post.id }}">{{ post.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No posts are associated with this tag.</p>
+{% endif %}
+<a href="/tags/{{ tag.id }}/edit">Edit Tag</a>
+<form action="/tags/{{ tag.id }}/delete" method="POST" style="display:inline;">
+  <button type="submit">Delete Tag</button>
+</form>
+
+<a href="/tags">Back to Tags</a>

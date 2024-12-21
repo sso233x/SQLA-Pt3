@@ -1,0 +1,10 @@
+<h1>Tags</h1>
+<a href="/">Users</a>
+<ul>
+    {% for tag in tags %}
+    <li>
+        <a href="/tags/{{ tag.id }}">{{ tag.name }}</a>
+    </li>
+    {% endfor %}
+</ul>
+<a href="/tags/new"><buttton>Add Tag</button></a>
